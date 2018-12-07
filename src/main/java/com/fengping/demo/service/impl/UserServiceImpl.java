@@ -2,7 +2,7 @@ package com.fengping.demo.service.impl;
 
 import com.fengping.demo.dao.UserDao;
 import com.fengping.demo.dataSource.DS;
-import com.fengping.demo.redis.RedisUtil;
+//import com.fengping.demo.redis.RedisUtil;
 import com.fengping.demo.service.UserService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
@@ -13,7 +13,7 @@ public class UserServiceImpl implements UserService {
     @Autowired
     private UserDao userDao;
     @Autowired
-    private RedisUtil redisUtil;
+//    private RedisUtil redisUtil;
 
     @DS
     @Override
@@ -29,16 +29,17 @@ public class UserServiceImpl implements UserService {
      */
     public String selectUserNameTwo() {
         String key = "name";
-        Boolean boo = redisUtil.hasKey(key);
-        if(boo){
-            Object o = redisUtil.get(key);
-            System.out.println(o.toString());
-            return (String)o;
-        }else{
-            String name = userDao.selectUserName();
-            redisUtil.set(key,name);
-            redisUtil.expire(key,30);
-            return name;
-        }
+//        Boolean boo = redisUtil.hasKey(key);
+//        if(boo){
+//            Object o = redisUtil.get(key);
+//            System.out.println(o.toString());
+//            return (String)o;
+//        }else{
+//            String name = userDao.selectUserName();
+//            redisUtil.set(key,name);
+//            redisUtil.expire(key,30);
+//            return name;
+//        }
+        return "";
     }
 }
